@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OHS Training GT – Catálogo de Productos y Servicios</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --naranja: #FF8C00;
+  --naranja-hover: #e07800;
+  --naranja-light: #fff3e0;
+  --gris-ohs: #5E6367;
+  --gris-light: #f4f4f4;
+  --verde: #008000;
+  --verde-light: #e8f5e9;
+  --negro: #111111;
+  --blanco: #ffffff;
+  --texto: #2a2a2a;
+  --texto-sec: #5E6367;
+  --borde: #e0e0e0;
+  --shadow: 0 2px 12px rgba(0,0,0,0.09);
+  --shadow-hover: 0 8px 28px rgba(0,0,0,0.15);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --trans: all 0.22s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--texto);
+  background: #f8f8f6;
+  line-height: 1.65;
+}
+
+h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--negro);
+  color: #aaa;
+  font-size: 12.5px;
+  text-align: center;
+  padding: 6px 20px;
+  letter-spacing: 0.3px;
+}
+.topbar a { color: var(--naranja); text-decoration: none; }
+
+/* ── NAVBAR ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--negro);
+  border-bottom: 3px solid var(--naranja);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--naranja);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-icon svg { width: 22px; height: 22px; fill: white; }
+
+.nav-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: var(--trans);
+}
+.nav-links a:hover { color: var(--naranja); background: rgba(255,140,0,0.08); }
+
+.nav-cta {
+  background: var(--naranja);
+  color: white !important;
+  padding: 8px 18px !important;
+  border-radius: 6px !important;
+}
+.nav-cta:hover { background: var(--naranja-hover) !important; color: white !important; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--negro);
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,140,0,0.04) 0px, rgba(255,140,0,0.04) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(-45deg, rgba(255,140,0,0.04) 0px, rgba(255,140,0,0.04) 1px, transparent 1px, transparent 40px);
+}
+
+.hero-accent {
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 720px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,140,0,0.15);
+  border: 1px solid rgba(255,140,0,0.3);
+  color: var(--naranja);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 800;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.hero h1 span { color: var(--naranja); }
+
+.hero p {
+  font-size: 16px;
+  color: #b0b0b0;
+  max-width: 540px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--naranja);
+  color: white;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: var(--trans);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: var(--naranja-hover); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,140,0,0.35); }
+
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: var(--trans);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--naranja);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stat-item {
+  padding: 22px 24px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: white;
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── SECTION LAYOUT ── */
+.section { padding: 64px 40px; }
+.section-alt { background: white; }
+.section-dark { background: var(--negro); }
+
+.container { max-width: 1160px; margin: 0 auto; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--naranja-light);
+  color: var(--naranja);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.section-tag.verde { background: var(--verde-light); color: var(--verde); }
+
+.section-header h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  color: var(--negro);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.section-header p {
+  font-size: 15.5px;
+  color: var(--texto-sec);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── NAV TABS ── */
+.cat-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.cat-tab {
+  background: white;
+  border: 1.5px solid var(--borde);
+  color: var(--texto-sec);
+  padding: 9px 18px;
+  border-radius: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--trans);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cat-tab:hover, .cat-tab.active {
+  background: var(--naranja);
+  border-color: var(--naranja);
+  color: white;
+}
+
+/* ── PRODUCT CARDS ── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--borde);
+  overflow: hidden;
+  transition: var(--trans);
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--naranja); }
+
+.card-img {
+  height: 160px;
+  background: var(--gris-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 54px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 10px;
+}
+.badge-orange { background: var(--naranja); color: white; }
+.badge-green { background: var(--verde); color: white; }
+.badge-gray { background: var(--gris-ohs); color: white; }
+.badge-dark { background: var(--negro); color: white; }
+
+.card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+
+.card-body h3 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--negro);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.card-body p {
+  font-size: 13.5px;
+  color: var(--texto-sec);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.card-features {
+  list-style: none;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.card-features li {
+  font-size: 12.5px;
+  color: var(--texto-sec);
+  padding: 3px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.card-features li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  min-width: 5px;
+  background: var(--naranja);
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--borde);
+  margin-top: auto;
+}
+
+.card-target {
+  font-size: 11.5px;
+  color: var(--texto-sec);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-cta {
+  background: var(--naranja);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: var(--trans);
+  cursor: pointer;
+  border: none;
+}
+.card-cta:hover { background: var(--naranja-hover); }
+
+/* ── BOTIQUINES TABLE ── */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--borde); }
+
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+thead tr { background: var(--negro); }
+thead th { color: white; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 14px 16px; text-align: left; white-space: nowrap; }
+thead th:first-child { border-radius: 0; }
+tbody tr { border-bottom: 1px solid var(--borde); transition: background 0.15s; }
+tbody tr:hover { background: #fdf5e6; }
+tbody td { padding: 11px 16px; color: var(--texto); }
+tbody td:not(:first-child) { text-align: center; font-weight: 500; }
+.table-section-row td { background: var(--naranja-light); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--naranja); padding: 8px 16px; }
+
+/* ── TRAININGS ── */
+.trainings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.training-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--borde);
+  padding: 28px;
+  transition: var(--trans);
+  position: relative;
+  overflow: hidden;
+}
+.training-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.training-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--naranja);
+  border-radius: 4px 0 0 4px;
+}
+
+.training-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.training-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--naranja-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.training-duration {
+  background: var(--gris-light);
+  color: var(--gris-ohs);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.training-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--negro);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.training-topics {
+  list-style: none;
+  margin: 12px 0;
+}
+
+.training-topics li {
+  font-size: 13px;
+  color: var(--texto-sec);
+  padding: 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.training-topics li:last-child { border-bottom: none; }
+.training-topics li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  background: var(--verde);
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+/* ── NORMATIVA BANNER ── */
+.normativa-banner {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255,140,0,0.25);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.normativa-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  background: rgba(255,140,0,0.15);
+  border: 1px solid rgba(255,140,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.normativa-content h3 { font-size: 20px; font-weight: 800; color: white; margin-bottom: 8px; }
+.normativa-content p { font-size: 14px; color: #999; line-height: 1.6; max-width: 560px; }
+
+.normativa-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.normativa-tag {
+  background: rgba(255,140,0,0.1);
+  border: 1px solid rgba(255,140,0,0.25);
+  color: var(--naranja);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── SERVICES COMPLEMENTARIOS ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  transition: var(--trans);
+}
+.service-item:hover { border-color: var(--naranja); box-shadow: var(--shadow); }
+
+.service-item .icon { font-size: 32px; margin-bottom: 12px; display: block; }
+.service-item h4 { font-size: 14px; font-weight: 700; color: var(--negro); margin-bottom: 6px; }
+.service-item p { font-size: 12.5px; color: var(--texto-sec); line-height: 1.5; }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: var(--naranja);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 32px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-white {
+  background: white;
+  color: var(--naranja);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--trans);
+  border: none;
+  cursor: pointer;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.contact-info h2 { font-size: 28px; font-weight: 800; color: var(--negro); margin-bottom: 14px; }
+.contact-info p { color: var(--texto-sec); margin-bottom: 24px; font-size: 15px; line-height: 1.7; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.contact-item:last-child { border-bottom: none; }
+
+.contact-item-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--naranja-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-item strong { display: block; font-size: 13px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gris-ohs); margin-bottom: 2px; }
+.contact-item span { font-size: 15px; color: var(--negro); }
+
+.contact-form {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+
+.contact-form h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: var(--negro); }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 12.5px; font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gris-ohs); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--borde);
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: var(--texto);
+  background: white;
+  transition: var(--trans);
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--naranja); }
+.form-group textarea { min-height: 100px; resize: vertical; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--negro);
+  padding: 48px 40px 24px;
+  color: #aaa;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand p { font-size: 13.5px; color: #888; line-height: 1.7; margin: 12px 0; }
+.footer-brand .tagline { font-style: italic; color: var(--naranja); font-size: 13px; }
+
+.footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 14px; }
+.footer-col a { display: block; color: #888; text-decoration: none; font-size: 13.5px; margin-bottom: 8px; transition: color 0.15s; }
+.footer-col a:hover { color: var(--naranja); }
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12.5px;
+}
+
+.footer-logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ── ANCHORS / SCROLL ── */
+.anchor { scroll-margin-top: 80px; }
+
+/* ── HIGHLIGHT STRIP ── */
+.highlight-strip {
+  background: var(--negro);
+  padding: 20px 40px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #1a1a1a;
+}
+.hs-item { display: flex; align-items: center; gap: 10px; color: #bbb; font-size: 13px; }
+.hs-item span:first-child { color: var(--naranja); font-size: 18px; }
+
+/* ── CATEGORY SECTION HEADERS ── */
+.cat-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--borde);
+}
+.cat-section-header .cat-icon {
+  width: 52px; height: 52px;
+  background: var(--naranja);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.cat-section-header h2 { font-size: 22px; font-weight: 800; color: var(--negro); }
+.cat-section-header p { font-size: 14px; color: var(--texto-sec); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 40px 20px; min-height: 300px; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 48px 20px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ── WHATSAPP CART ── */
+.cart-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  z-index: 1001;
+  background: #111111;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.cart-toggle .cart-count {
+  background: var(--naranja);
+  color: white;
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+}
+.cart-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 150px;
+  width: min(380px, calc(100vw - 32px));
+  max-height: 65vh;
+  overflow: auto;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+  z-index: 1002;
+  display: none;
+}
+.cart-panel.open { display: block; }
+.cart-header {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--borde);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+.cart-body {
+  padding: 14px 18px;
+}
+.cart-empty {
+  color: var(--texto-sec);
+  font-size: 14px;
+}
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.cart-item-name {
+  font-size: 13.5px;
+  color: var(--texto);
+  font-weight: 500;
+}
+.cart-qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.cart-qty button {
+  border: none;
+  background: white;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.cart-qty span {
+  min-width: 28px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cart-remove {
+  border: none;
+  background: transparent;
+  color: #a00;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cart-footer {
+  padding: 14px 18px 18px;
+  border-top: 1px solid var(--borde);
+  display: grid;
+  gap: 10px;
+}
+.cart-note {
+  width: 100%;
+  min-height: 78px;
+  resize: vertical;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+.cart-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.btn-cart-outline, .btn-cart-wa {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-cart-outline {
+  background: #f3f3f3;
+  color: var(--negro);
+}
+.btn-cart-wa {
+  background: #25D366;
+  color: white;
+}
+.product-card .card-cta.added {
+  background: #25D366;
+}
+@media (max-width: 768px) {
+  .cart-toggle { right: 14px; bottom: 82px; }
+  .cart-panel { right: 14px; bottom: 140px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  📞 5622 3829 &nbsp;|&nbsp; <a href="mailto:info@gtohstraining.com">info@gtohstraining.com</a> &nbsp;|&nbsp; <a href="https://gtohstraining.com">gtohstraining.com</a>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+    </div>
+    <span class="nav-brand">OHS Training GT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#botiquines">Botiquines</a></li>
+    <li><a href="#insumos">Insumos</a></li>
+    <li><a href="#equipo">Equipo Médico</a></li>
+    <li><a href="#extintores">Extintores</a></li>
+    <li><a href="#senalizacion">Señalización</a></li>
+    <li><a href="#capacitaciones">Capacitaciones</a></li>
+    <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        OHS Training GT – Guatemala
+      </div>
+      <h1>Soluciones Integrales para<br><span>un Entorno Laboral Seguro</span></h1>
+      <p>De la norma a la práctica: botiquines empresariales, insumos de primeros auxilios, señalización, extintores y capacitaciones en Seguridad y Salud Ocupacional para empresas en Guatemala.</p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          Ver Catálogo Completo
+        </a>
+        <a href="#contacto" class="btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.07 2.83 2 2 0 012.06 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Solicitar Cotización
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">6+</span>
+    <span class="stat-label">Líneas de Producto</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">7</span>
+    <span class="stat-label">Capacitaciones Empresariales</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">AG 229</span>
+    <span class="stat-label">Cumplimiento Normativo</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">B2B</span>
+    <span class="stat-label">Soluciones para Empresas</span>
+  </div>
+</div>
+
+<!-- HIGHLIGHT STRIP -->
+<div class="highlight-strip">
+  <div class="hs-item"><span>🛡️</span><span>Acuerdo Gubernativo 229-2014</span></div>
+  <div class="hs-item"><span>📋</span><span>Ministerio de Trabajo Guatemala</span></div>
+  <div class="hs-item"><span>🏥</span><span>Alineado a lineamientos IGSS</span></div>
+  <div class="hs-item"><span>🚨</span><span>Guías CONRED de emergencias</span></div>
+</div>
+
+<!-- ═══════════════════════════════ CATÁLOGO ═══════════════════════════════ -->
+<section class="section section-alt" id="catalogo">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">OHS-SUPPLY</div>
+      <h2>Catálogo de Productos y Servicios</h2>
+      <p>Soluciones completas para la prevención de riesgos, atención de emergencias y cumplimiento normativo en su empresa.</p>
+    </div>
+
+    <div class="cat-nav">
+      <a href="#botiquines" class="cat-tab active">🧰 Botiquines</a>
+      <a href="#insumos" class="cat-tab">🩹 Insumos</a>
+      <a href="#equipo" class="cat-tab">🩺 Equipo Médico</a>
+      <a href="#extintores" class="cat-tab">🔥 Extintores</a>
+      <a href="#senalizacion" class="cat-tab">⚠️ Señalización</a>
+      <a href="#medicamentos" class="cat-tab">💊 Medicamentos</a>
+      <a href="#capacitaciones" class="cat-tab">🎓 Capacitaciones</a>
+      <a href="#servicios" class="cat-tab">⚙️ Servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOTIQUINES ══ -->
+<section class="section anchor" id="botiquines">
+  <div class="container">
+    <div class="cat-section-header">
+      <div class="cat-icon">🧰</div>
+      <div>
+        <h2>Botiquines Empresariales</h2>
+        <p>Diseñados para la atención inmediata en el entorno laboral – conformes al Acuerdo Gubernativo 229-2014</p>
+      </div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff8ee;">
+          <span>🧰</span>
+          <div class="card-badges">
+            <span class="badge badge-orange">Básico</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Botiquín Empresarial Básico</h3>
+          <p>Solución de primeros auxilios para grupos de hasta 25 colaboradores. Ideal para oficinas y comercios.</p>
+          <ul class="card-features">
+            <li>Para 10 a 25 personas</li>
+            <li>Gasas estériles, vendas y curitas</li>
+            <li>Guantes, pinza, tijeras de botón</li>
+            <li>Antisépticos y solución salina</li>
+            <li>Material resistente e impermeable</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏢 Oficinas / Comercios</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff3ee;">
+          <span>🧰</span>
+          <div class="card-badges">
+            <span class="badge badge-orange">Intermedio</span>
+            <span class="badge badge-dark">Más Solicitado</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Botiquín Empresarial Intermedio</h3>
+          <p>Capacidad ampliada para empresas medianas. Equipado para responder ante un mayor volumen de atenciones simultáneas.</p>
+          <ul class="card-features">
+            <li>Para 25 a 50 colaboradores</li>
+            <li>Mayor cantidad de insumos de curación</li>
+            <li>Vendas triangulares y elásticas</li>
+            <li>Mascarilla RCP y manta térmica</li>
+            <li>Compresa fría instantánea</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏭 Empresas medianas</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#ffe8e8;">
+          <span>🧰</span>
+          <div class="card-badges">
+            <span class="badge badge-orange">Avanzado</span>
+            <span class="badge badge-green">Empresarial</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Botiquín Empresarial Avanzado</h3>
+          <p>Para organizaciones con más de 50 colaboradores. Dotación completa para brigadas y múltiples puestos de trabajo.</p>
+          <ul class="card-features">
+            <li>Para 50+ colaboradores</li>
+            <li>Dotación reforzada de todos los insumos</li>
+            <li>Suero oral, apósitos y gasas petroladas</li>
+            <li>Múltiples pares de guantes y vendas</li>
+            <li>Cumplimiento Acuerdo 229-2014</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏗️ Industria / Manufactura</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#e8f5ff;">
+          <span>🚗</span>
+          <div class="card-badges">
+            <span class="badge badge-gray">Vehículos</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Botiquín para Vehículos</h3>
+          <p>Compacto y diseñado para emergencias en ruta. Tamaño adecuado para el habitáculo de vehículos de trabajo o flotillas.</p>
+          <ul class="card-features">
+            <li>Formato compacto y liviano</li>
+            <li>Resistente a temperaturas variables</li>
+            <li>Insumos básicos de primeros auxilios</li>
+            <li>Ideal para flotillas empresariales</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🚛 Logística / Transporte</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#e8ffe8;">
+          <span>🦺</span>
+          <div class="card-badges">
+            <span class="badge badge-green">Brigadas</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Botiquín para Brigadas de Emergencia</h3>
+          <p>Diseñado para el personal de primera respuesta dentro de la empresa. Incluye insumos para atención de múltiples víctimas.</p>
+          <ul class="card-features">
+            <li>Dotación ampliada para respuesta rápida</li>
+            <li>Inmovilizadores y vendas triangulares</li>
+            <li>Mascarilla RCP y mantas térmicas</li>
+            <li>Pensado para brigadas capacitadas</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏥 Brigadas de Emergencia</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f5e8ff;">
+          <span>✏️</span>
+          <div class="card-badges">
+            <span class="badge badge-dark">A tu medida</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Botiquín Personalizado por Industria</h3>
+          <p>Configuración adaptada a los riesgos específicos de su sector: construcción, manufactura, alimentos, salud u otros.</p>
+          <ul class="card-features">
+            <li>Diagnóstico previo de riesgos</li>
+            <li>Insumos según riesgo específico</li>
+            <li>Bordado con logotipo de su empresa</li>
+            <li>Asesoría incluida en configuración</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏭 Todos los sectores</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TABLA DE CONTENIDO -->
+    <div style="margin-top: 48px;">
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--negro);">📦 Contenido estándar de botiquines – Por número de colaboradores</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Artículo</th>
+              <th>1–5 personas</th>
+              <th>5–10 personas</th>
+              <th>10–25 personas</th>
+              <th>25+ personas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-section-row"><td colspan="5">Material de Curación</td></tr>
+            <tr><td>Gasa estéril 4x4</td><td>15</td><td>20</td><td>30</td><td>50</td></tr>
+            <tr><td>Rollo venda gasa 2"</td><td>2</td><td>2</td><td>3</td><td>3</td></tr>
+            <tr><td>Rollo venda gasa 4"</td><td>2</td><td>2</td><td>3</td><td>3</td></tr>
+            <tr><td>Venda elástica 2"</td><td>2</td><td>2</td><td>3</td><td>3</td></tr>
+            <tr><td>Venda elástica 4"</td><td>2</td><td>2</td><td>3</td><td>3</td></tr>
+            <tr><td>Gasa impregnada</td><td>10</td><td>10</td><td>15</td><td>20</td></tr>
+            <tr><td>Curitas</td><td>10</td><td>20</td><td>30</td><td>40</td></tr>
+            <tr><td>Venda triangular</td><td>5</td><td>5</td><td>5</td><td>6</td></tr>
+            <tr class="table-section-row"><td colspan="5">Herramientas e Insumos de Apoyo</td></tr>
+            <tr><td>Esparadrapo 1/2"</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Esparadrapo 1"</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Tijera de botón</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Pinza plástica</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Guantes (pares talla M)</td><td>2</td><td>2</td><td>3</td><td>5</td></tr>
+            <tr><td>Parche ocular</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+            <tr><td>Mascarilla RCP</td><td>1</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td>Manta térmica</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>Compresa fría instantánea</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+            <tr><td>Férula rígida 12" x 4"</td><td>2</td><td>2</td><td>2</td><td>4</td></tr>
+            <tr class="table-section-row"><td colspan="5">Antisépticos y Soluciones</td></tr>
+            <tr><td>Agua oxigenada 120ml</td><td>2</td><td>2</td><td>3</td><td>4</td></tr>
+            <tr><td>Alcohol 70% 120ml</td><td>2</td><td>2</td><td>3</td><td>4</td></tr>
+            <tr><td>Algodón 25g</td><td>1</td><td>2</td><td>4</td><td>5</td></tr>
+            <tr><td>Lavado salino 0.9% 100ml</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+            <tr><td>Suero oral 7.1g (polvo)</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+            <tr><td>Bolsas desechos</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 12px; color: var(--texto-sec); margin-top: 10px;">* Material del botiquín: tela resistente e impermeable con cierres industriales. Personalizable con bordado del logotipo de su empresa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSUMOS ══ -->
+<section class="section section-alt anchor" id="insumos">
+  <div class="container">
+    <div class="cat-section-header">
+      <div class="cat-icon">🩹</div>
+      <div>
+        <h2>Insumos de Primeros Auxilios</h2>
+        <p>Reposición periódica y suministro individual para mantener sus botiquines siempre listos</p>
+      </div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff8f8; font-size: 48px;">🩹</div>
+        <div class="card-body">
+          <h3>Material de Curación</h3>
+          <p>Insumos esenciales para el manejo inicial de heridas, quemaduras y lesiones menores en el trabajo.</p>
+          <ul class="card-features">
+            <li>Gasas estériles 2" y 4"</li>
+            <li>Vendas de gasa y elásticas</li>
+            <li>Vendas triangulares</li>
+            <li>Gasas petroladas</li>
+            <li>Cinta micropore y esparadrapo</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏥 Reposición periódica</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f8fff8; font-size: 48px;">🧤</div>
+        <div class="card-body">
+          <h3>Protección y Barreras</h3>
+          <p>Insumos de protección para el prestador de primeros auxilios y el paciente durante la atención de emergencias.</p>
+          <ul class="card-features">
+            <li>Guantes desechables</li>
+            <li>Mascarillas para RCP</li>
+            <li>Mantas térmicas de emergencia</li>
+            <li>Bolsas para desechos</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🦺 Brigadas / Primeros Respondedores</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f8f8ff; font-size: 48px;">🔧</div>
+        <div class="card-body">
+          <h3>Instrumental Médico Básico</h3>
+          <p>Herramientas indispensables para la atención rápida y segura durante emergencias en el sitio de trabajo.</p>
+          <ul class="card-features">
+            <li>Tijeras de trauma y botón</li>
+            <li>Pinzas plásticas</li>
+            <li>Compresas frías instantáneas</li>
+            <li>Parches oculares</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏭 Uso industrial y comercial</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fffbf0; font-size: 48px;">💧</div>
+        <div class="card-body">
+          <h3>Antisépticos y Soluciones</h3>
+          <p>Productos de limpieza y desinfección de heridas para uso inmediato en el botiquín empresarial.</p>
+          <ul class="card-features">
+            <li>Solución salina 0.9%</li>
+            <li>Alcohol 70%</li>
+            <li>Agua oxigenada</li>
+            <li>Algodón y gasas</li>
+            <li>Suero oral (polvo para reconstituir)</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">📦 Disponible al por mayor</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ EQUIPO MÉDICO ══ -->
+<section class="section anchor" id="equipo">
+  <div class="container">
+    <div class="cat-section-header">
+      <div class="cat-icon">🩺</div>
+      <div>
+        <h2>Equipo Médico Básico</h2>
+        <p>Instrumental clínico para enfermería, puestos de salud ocupacional y brigadas empresariales</p>
+      </div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f0f8ff; font-size: 48px;">🩺</div>
+        <div class="card-body">
+          <h3>Signos Vitales</h3>
+          <p>Equipo esencial para el monitoreo rápido del estado de salud de los colaboradores en situaciones de emergencia.</p>
+          <ul class="card-features">
+            <li>Estetoscopios</li>
+            <li>Baumanómetros manuales o digitales</li>
+            <li>Oxímetros de pulso</li>
+            <li>Termómetros digitales</li>
+            <li>Glucómetros y básculas</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏥 Puesto de Salud / Enfermería</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff0f0; font-size: 48px;">🦽</div>
+        <div class="card-body">
+          <h3>Inmovilización y Rescate</h3>
+          <p>Equipo especializado para la estabilización y traslado seguro de víctimas con traumatismos en el área de trabajo.</p>
+          <ul class="card-features">
+            <li>Inmovilizadores y férulas</li>
+            <li>Collares cervicales</li>
+            <li>Camillas plegables</li>
+            <li>Tablas espinales</li>
+            <li>Sillas de ruedas</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🦺 Brigadas de Emergencia</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f5fff0; font-size: 48px;">💡</div>
+        <div class="card-body">
+          <h3>Diagnóstico Clínico</h3>
+          <p>Instrumentos complementarios para el personal de salud ocupacional dentro de la empresa.</p>
+          <ul class="card-features">
+            <li>Linternas clínicas</li>
+            <li>Básculas de precisión</li>
+            <li>Glucómetros con tiras reactivas</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">👩‍⚕️ Enfermería Ocupacional</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXTINTORES ══ -->
+<section class="section section-alt anchor" id="extintores">
+  <div class="container">
+    <div class="cat-section-header">
+      <div class="cat-icon">🔥</div>
+      <div>
+        <h2>Extintores Contra Incendio</h2>
+        <p>Protección activa contra incendios para instalaciones industriales, comerciales y vehículos</p>
+      </div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff0e8; font-size: 48px;">🧯</div>
+        <div class="card-body">
+          <h3>Extintor ABC Multipropósito</h3>
+          <p>El extintor más versátil del mercado. Apto para fuegos de sólidos, líquidos y equipos eléctricos. Recomendado para la mayoría de entornos empresariales.</p>
+          <ul class="card-features">
+            <li>Fuegos clase A, B y C</li>
+            <li>Ideal para oficinas, bodegas y talleres</li>
+            <li>Disponible en distintas capacidades</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏢 Uso General Empresarial</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f0f8f0; font-size: 48px;">🧯</div>
+        <div class="card-body">
+          <h3>Extintor de CO₂</h3>
+          <p>Diseñado para la protección de equipos eléctricos y áreas sensibles. No deja residuos ni daña equipos electrónicos.</p>
+          <ul class="card-features">
+            <li>Fuegos clase B y C</li>
+            <li>Sin residuos post-descarga</li>
+            <li>Ideal para salas de cómputo y laboratorios</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">💻 Tecnología / Salas Eléctricas</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fffbf0; font-size: 48px;">🍳</div>
+        <div class="card-body">
+          <h3>Extintor Tipo K – Cocinas Industriales</h3>
+          <p>Especialmente formulado para incendios en aceites y grasas vegetales o animales a alta temperatura. Obligatorio en cocinas industriales.</p>
+          <ul class="card-features">
+            <li>Fuegos clase K (aceites y grasas)</li>
+            <li>Uso en cocinas y restaurantes industriales</li>
+            <li>Alta eficacia en altas temperaturas</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🍽️ Gastronomía / Industria Alimentaria</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f0f0ff; font-size: 48px;">🚗</div>
+        <div class="card-body">
+          <h3>Extintor para Vehículos</h3>
+          <p>Compacto y de fácil acceso para la protección de flotas vehiculares, camiones y maquinaria pesada.</p>
+          <ul class="card-features">
+            <li>Formato compacto</li>
+            <li>Fácil instalación en vehículos</li>
+            <li>Ideal para flotillas empresariales</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🚛 Logística y Transporte</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f8f0ff; font-size: 48px;">🗄️</div>
+        <div class="card-body">
+          <h3>Soportes y Gabinetes</h3>
+          <p>Accesorios para la correcta instalación, protección y visibilidad de los extintores en las instalaciones.</p>
+          <ul class="card-features">
+            <li>Soportes de pared y pedestal</li>
+            <li>Gabinetes metálicos con visor</li>
+            <li>Señalización incluida</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏗️ Instalación Empresarial</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f0fff8; font-size: 48px;">🔧</div>
+        <div class="card-body">
+          <h3>Inspección y Mantenimiento</h3>
+          <p>Servicio de revisión periódica, recarga y certificación de extintores para mantener su vigencia y funcionalidad.</p>
+          <ul class="card-features">
+            <li>Revisión periódica programada</li>
+            <li>Recarga y prueba de presión</li>
+            <li>Documentación de cumplimiento</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">📋 Cumplimiento Normativo</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SEÑALIZACIÓN ══ -->
+<section class="section anchor" id="senalizacion">
+  <div class="container">
+    <div class="cat-section-header">
+      <div class="cat-icon">⚠️</div>
+      <div>
+        <h2>Señalización de Seguridad y Emergencia</h2>
+        <p>Señalética conforme a normativa nacional para una evacuación segura y cumplimiento en SSO</p>
+      </div>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff8e0; font-size: 48px;">🚪</div>
+        <div class="card-body">
+          <h3>Rutas de Evacuación y Salidas de Emergencia</h3>
+          <p>Señalética indispensable para guiar al personal hacia las salidas seguras ante cualquier tipo de emergencia.</p>
+          <ul class="card-features">
+            <li>Señales de rutas de evacuación</li>
+            <li>Señales de salida de emergencia</li>
+            <li>Señales de punto de reunión</li>
+            <li>Disponible en fotoluminiscente</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏢 Toda instalación empresarial</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#ffe8e8; font-size: 48px;">⚠️</div>
+        <div class="card-body">
+          <h3>Señales de Riesgo y Advertencia</h3>
+          <p>Comunicación visual de peligros específicos en el área de trabajo para la prevención proactiva de accidentes.</p>
+          <ul class="card-features">
+            <li>Señales de riesgo eléctrico</li>
+            <li>Advertencia de piso húmedo</li>
+            <li>Zona de maquinaria peligrosa</li>
+            <li>Materiales inflamables y corrosivos</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏭 Industria / Manufactura</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#e8f0ff; font-size: 48px;">🦺</div>
+        <div class="card-body">
+          <h3>Señalización de EPP Obligatorio</h3>
+          <p>Señales que indican el equipo de protección personal requerido en zonas específicas de la empresa.</p>
+          <ul class="card-features">
+            <li>Uso obligatorio de casco, guantes, etc.</li>
+            <li>Señales de lentes de seguridad</li>
+            <li>Protección auditiva obligatoria</li>
+            <li>Botas de seguridad</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">🏗️ Construcción / Industrial</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#e8ffe8; font-size: 48px;">🗺️</div>
+        <div class="card-body">
+          <h3>Planos de Evacuación</h3>
+          <p>Diseño e impresión de planos de evacuación específicos para su instalación, conforme a requerimientos de CONRED.</p>
+          <ul class="card-features">
+            <li>Diseño según planta de la empresa</li>
+            <li>Rutas primarias y secundarias</li>
+            <li>Puntos de reunión y recursos</li>
+            <li>Formato de alta visibilidad</li>
+          </ul>
+          <div class="card-footer">
+            <span class="card-target">📋 Cumplimiento CONRED</span>
+            <a href="#contacto" class="card-cta">Agregar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEDICAMENTOS ══ -->
+<section class="section section-alt anchor" id="medicamentos">
+  <div class="container">
+    <div class="cat-section-header">
+      <div class="cat-icon">💊</div>
+      <div>
+        <h2>Medicamentos de Uso Básico</h2>
+        <p>Medicación esencial para botiquines empresariales – uso bajo supervisión de personal calificado</p>
+      </div>
+    </div>
+
+    <div class="products-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff8f0; font-size: 48px;">💊</div>
+        <div class="card-body">
+          <h3>Analgésicos y Antipiréticos</h3>
+          <p>Para el manejo inicial de dolor leve a moderado y fiebre en el entorno laboral.</p>
+          <div class="card-footer"><span class="card-target">💼 Uso laboral</span><a href="#contacto" class="card-cta">Agregar</a></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f0fff8; font-size: 48px;">💊</div>
+        <div class="card-body">
+          <h3>Antiinflamatorios</h3>
+          <p>Para la atención inicial de lesiones por esfuerzo, golpes o molestias musculares menores.</p>
+          <div class="card-footer"><span class="card-target">💼 Uso laboral</span><a href="#contacto" class="card-cta">Agregar</a></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f8f0ff; font-size: 48px;">💊</div>
+        <div class="card-body">
+          <h3>Antihistamínicos</h3>
+          <p>Para reacciones alérgicas leves en el trabajo, especialmente en actividades con exposición a agentes externos.</p>
+          <div class="card-footer"><span class="card-target">💼 Uso laboral</span><a href="#contacto" class="card-cta">Agregar</a></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#f0f8ff; font-size: 48px;">💧</div>
+        <div class="card-body">
+          <h3>Sales de Rehidratación Oral</h3>
+          <p>Fundamental para actividades en ambientes de calor o trabajo físico intenso. Prevención y atención de deshidratación.</p>
+          <div class="card-footer"><span class="card-target">🏗️ Trabajo en campo</span><a href="#contacto" class="card-cta">Agregar</a></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fff0f0; font-size: 48px;">🧴</div>
+        <div class="card-body">
+          <h3>Antisépticos Tópicos</h3>
+          <p>Soluciones para la desinfección de heridas y zonas expuestas durante actividades laborales.</p>
+          <div class="card-footer"><span class="card-target">💼 Uso laboral</span><a href="#contacto" class="card-cta">Agregar</a></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="card-img" style="background:#fffbf0; font-size: 48px;">🧴</div>
+        <div class="card-body">
+          <h3>Cremas para Quemaduras Menores</h3>
+          <p>Tratamiento inicial de quemaduras de primer grado frecuentes en sectores industriales y de cocina.</p>
+          <div class="card-footer"><span class="card-target">🍳 Cocinas / Industria</span><a href="#contacto" class="card-cta">Agregar</a></div>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size: 12.5px; color: var(--texto-sec); margin-top: 16px; font-style: italic;">* Los medicamentos deben administrarse bajo supervisión de personal de salud autorizado. OHS Training GT no realiza diagnósticos médicos.</p>
+  </div>
+</section>
+
+<!-- ══ NORMATIVA BANNER ══ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="normativa-banner">
+      <div class="normativa-icon">📜</div>
+      <div class="normativa-content">
+        <h3>Cumplimiento Normativo en SSO</h3>
+        <p>Los productos y configuraciones de botiquines de OHS Training GT pueden adaptarse a los requerimientos establecidos por el Acuerdo Gubernativo 229-2014 (Reglamento de Salud y Seguridad Ocupacional), así como a lineamientos del Ministerio de Trabajo, IGSS y guías de gestión de emergencias de CONRED.</p>
+        <div class="normativa-tags">
+          <span class="normativa-tag">AG 229-2014</span>
+          <span class="normativa-tag">MINTRAB</span>
+          <span class="normativa-tag">IGSS</span>
+          <span class="normativa-tag">CONRED</span>
+          <span class="normativa-tag">SSO Guatemala</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAPACITACIONES ══ -->
+<section class="section section-alt anchor" id="capacitaciones">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag verde">OHS-ACADEMY</div>
+      <h2>Capacitaciones Empresariales en SSO</h2>
+      <p>Programas diseñados para fortalecer la prevención de riesgos, la respuesta ante emergencias y la cultura de seguridad dentro de su organización. Teoría y práctica aplicables al entorno laboral guatemalteco.</p>
+    </div>
+
+    <div class="trainings-grid">
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">🩹</div>
+          <span class="training-duration">6 horas</span>
+        </div>
+        <h3>Primeros Auxilios y Atención Inicial de Emergencias</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Capacitación fundamental para brigadas y personal designado. Combina teoría con simulaciones reales de emergencia.</p>
+        <ul class="training-topics">
+          <li>Evaluación de la escena y seguridad del rescatista</li>
+          <li>Evaluación primaria del paciente (ABC)</li>
+          <li>Control de hemorragias y manejo de heridas</li>
+          <li>Fracturas e inmovilización básica</li>
+          <li>Quemaduras y manejo inicial</li>
+          <li>RCP básica</li>
+          <li>Uso del botiquín empresarial</li>
+          <li>Simulación de emergencias</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">🏢 Para brigadas y personal SSO</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">🔥</div>
+          <span class="training-duration">3 horas</span>
+        </div>
+        <h3>Prevención de Incendios y Uso de Extintores</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Entrenamiento práctico para el manejo correcto de extintores y la prevención activa de incendios en instalaciones empresariales.</p>
+        <ul class="training-topics">
+          <li>Conceptos básicos del fuego</li>
+          <li>Clases de fuego</li>
+          <li>Tipos de extintores</li>
+          <li>Método PASS para uso de extintores</li>
+          <li>Prevención de incendios</li>
+          <li>Práctica con extintores</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">🏭 Todo el personal</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">🚨</div>
+          <span class="training-duration">4 horas</span>
+        </div>
+        <h3>Brigadas de Evacuación y Rescate Básico</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Formación para equipos de respuesta interna. Incluye organización de brigadas, protocolos de evacuación y simulacros.</p>
+        <ul class="training-topics">
+          <li>Organización de brigadas de emergencia</li>
+          <li>Tipos de emergencias laborales</li>
+          <li>Procedimientos de evacuación</li>
+          <li>Evacuación en caso de sismo</li>
+          <li>Búsqueda y rescate básico</li>
+          <li>Simulación de evacuación</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">🦺 Brigadas de emergencia</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">⚙️</div>
+          <span class="training-duration">3 horas</span>
+        </div>
+        <h3>Prevención de Riesgos Laborales</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Base conceptual y práctica para construir una cultura de seguridad sólida dentro de la organización.</p>
+        <ul class="training-topics">
+          <li>Conceptos de seguridad ocupacional</li>
+          <li>Identificación de riesgos</li>
+          <li>Medidas de control</li>
+          <li>Responsabilidades del trabajador</li>
+          <li>Cultura de prevención</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">🏢 Todo el personal</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">🧘</div>
+          <span class="training-duration">1 hora</span>
+        </div>
+        <h3>Pausas Activas y Ergonomía</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Prevención de lesiones musculoesqueléticas y mejora del bienestar físico en el trabajo. Alta aceptación entre el personal.</p>
+        <ul class="training-topics">
+          <li>Principios de ergonomía</li>
+          <li>Riesgos por posturas prolongadas</li>
+          <li>Ejercicios de pausas activas</li>
+          <li>Prevención de lesiones musculares</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">💻 Oficinas / Trabajo sedentario</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">📦</div>
+          <span class="training-duration">3 horas</span>
+        </div>
+        <h3>Estibado y Manejo Manual de Cargas</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Técnicas correctas de levantamiento y manejo de cargas para reducir accidentes en bodegas, almacenes y producción.</p>
+        <ul class="training-topics">
+          <li>Principios del levantamiento seguro</li>
+          <li>Riesgos de manipulación de cargas</li>
+          <li>Técnicas correctas de levantamiento</li>
+          <li>Prevención de lesiones de espalda</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">🏭 Bodegas / Manufactura</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card" style="border-color: var(--verde);">
+        <div class="training-card" style="display:none"></div>
+        <div class="training-header">
+          <div class="training-icon" style="background: var(--verde-light);">🎓</div>
+          <span class="training-duration" style="background: var(--verde-light); color: var(--verde);">8 horas</span>
+        </div>
+        <h3>Formación de Monitores SSO</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Programa avanzado para la formación de líderes internos de seguridad. El nivel más completo de nuestra oferta formativa.</p>
+        <ul class="training-topics">
+          <li>Marco legal de seguridad ocupacional</li>
+          <li>Funciones del monitor SSO</li>
+          <li>Identificación de riesgos</li>
+          <li>Investigación de accidentes</li>
+          <li>Promoción de cultura de seguridad</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">👔 Líderes / Supervisores SSO</span>
+          <a href="#contacto" class="card-cta" style="background: var(--verde);">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-header">
+          <div class="training-icon">🎗️</div>
+          <span class="training-duration">1 hora</span>
+        </div>
+        <h3>VIH en el Ámbito Laboral</h3>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-bottom: 12px;">Sensibilización y educación sobre VIH en el trabajo. Fomenta ambientes laborales sin discriminación y con información correcta.</p>
+        <ul class="training-topics">
+          <li>Conceptos básicos sobre VIH</li>
+          <li>Formas de transmisión</li>
+          <li>Prevención</li>
+          <li>No discriminación laboral</li>
+        </ul>
+        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--texto-sec);">🏢 Obligatorio en algunas industrias</span>
+          <a href="#contacto" class="card-cta">Solicitar</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background: var(--verde-light); border: 1px solid #c8e6c9; border-radius: var(--radius); padding: 24px 32px; margin-top: 40px; display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;">
+      <span style="font-size: 28px; flex-shrink: 0;">📜</span>
+      <div>
+        <strong style="font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--verde);">Capacitaciones alineadas a la normativa vigente en Guatemala</strong>
+        <p style="font-size: 13.5px; color: var(--texto-sec); margin-top: 4px; line-height: 1.6;">Las capacitaciones impartidas por OHS Training GT están diseñadas en cumplimiento con la normativa vigente en materia de Seguridad y Salud Ocupacional en Guatemala, incluyendo lineamientos técnicos y buenas prácticas aplicables al entorno laboral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICIOS COMPLEMENTARIOS ══ -->
+<section class="section anchor" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">OHS-RISK</div>
+      <h2>Servicios Complementarios</h2>
+      <p>Soluciones de asesoría, instalación y acompañamiento para garantizar la seguridad continua en su empresa.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <span class="icon">📊</span>
+        <h4>Evaluación de Botiquines</h4>
+        <p>Diagnóstico y dimensionamiento de botiquines según el número de colaboradores y tipo de actividad.</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">🔄</span>
+        <h4>Reposición Periódica</h4>
+        <p>Programa de reposición programada de insumos para mantener los botiquines siempre completos y vigentes.</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">🪧</span>
+        <h4>Instalación de Señalización</h4>
+        <p>Servicio de instalación profesional de señalética de seguridad y emergencia en sus instalaciones.</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">📋</span>
+        <h4>Asesoría en Cumplimiento SSO</h4>
+        <p>Orientación técnica para que su empresa cumpla con los requerimientos del Acuerdo Gubernativo 229-2014 y normativa vigente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Listo para proteger a su equipo?</h2>
+    <p>Contáctenos hoy y reciba una propuesta personalizada para su empresa. Sin compromiso.</p>
+    <a href="#contacto" class="btn-white">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.07 2.83 2 2 0 012.06 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Solicitar Cotización
+    </a>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section class="section section-alt anchor" id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag" style="margin-bottom: 14px;">Contáctenos</div>
+        <h2>¿Cómo podemos ayudarle?</h2>
+        <p>Estamos disponibles para resolver sus consultas, enviar cotizaciones personalizadas y asesorarle en la solución de seguridad que mejor se adapta a su empresa.</p>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <strong>Teléfono / WhatsApp</strong>
+            <span>5622 3829</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <strong>Correo Electrónico</strong>
+            <span>info@gtohstraining.com</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🌐</div>
+          <div>
+            <strong>Sitio Web</strong>
+            <span>gtohstraining.com</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🇬🇹</div>
+          <div>
+            <strong>Ubicación</strong>
+            <span>Guatemala, Guatemala</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Solicitar Cotización</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Su nombre">
+          </div>
+          <div class="form-group">
+            <label>Empresa</label>
+            <input type="text" placeholder="Nombre de su empresa">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="+502 0000-0000">
+          </div>
+          <div class="form-group">
+            <label>Correo Electrónico</label>
+            <input type="email" placeholder="correo@empresa.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Producto o Servicio de Interés</label>
+          <select>
+            <option value="">Seleccione una opción</option>
+            <option>Botiquines Empresariales</option>
+            <option>Insumos de Primeros Auxilios</option>
+            <option>Equipo Médico Básico</option>
+            <option>Extintores</option>
+            <option>Señalización de Seguridad</option>
+            <option>Capacitaciones SSO</option>
+            <option>Servicio de Reposición Periódica</option>
+            <option>Asesoría en Cumplimiento SSO</option>
+            <option>Solución Integral (varios productos)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>No. de Colaboradores</label>
+          <select>
+            <option value="">Seleccione</option>
+            <option>1 – 10 colaboradores</option>
+            <option>11 – 25 colaboradores</option>
+            <option>26 – 50 colaboradores</option>
+            <option>51 – 100 colaboradores</option>
+            <option>Más de 100 colaboradores</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje (opcional)</label>
+          <textarea placeholder="Cuéntenos sobre su empresa o necesidad específica..."></textarea>
+        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="alert('Formulario de demostración. Contáctenos directamente al 5622 3829 o info@gtohstraining.com')">
+          Enviar Solicitud
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text">OHS Training GT</div>
+        <p>Soluciones integrales en Seguridad y Salud Ocupacional para empresas guatemaltecas. Capacitación, asesoría y suministro.</p>
+        <p class="tagline">"Protegiendo tu Talento, Asegurando tu Operación."</p>
+      </div>
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <a href="#botiquines">Botiquines Empresariales</a>
+        <a href="#insumos">Insumos de Primeros Auxilios</a>
+        <a href="#equipo">Equipo Médico Básico</a>
+        <a href="#extintores">Extintores</a>
+        <a href="#senalizacion">Señalización</a>
+        <a href="#medicamentos">Medicamentos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Capacitaciones</h4>
+        <a href="#capacitaciones">Primeros Auxilios</a>
+        <a href="#capacitaciones">Uso de Extintores</a>
+        <a href="#capacitaciones">Brigadas de Evacuación</a>
+        <a href="#capacitaciones">Prevención de Riesgos</a>
+        <a href="#capacitaciones">Ergonomía</a>
+        <a href="#capacitaciones">Monitores SSO</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="tel:56223829">📞 5622 3829</a>
+        <a href="mailto:info@gtohstraining.com">✉️ info@gtohstraining.com</a>
+        <a href="https://gtohstraining.com">🌐 gtohstraining.com</a>
+        <a href="#contacto">📝 Solicitar Cotización</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 OHS Training GT – Todos los derechos reservados</span>
+      <span style="color: var(--gris-ohs);">OHS-ACADEMY · OHS-RISK · OHS-SUPPLY</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+const tabs = document.querySelectorAll('.cat-tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', function() {
+    tabs.forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+
+
+
+
+<a href="https://wa.me/50256223829?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20OHS%20Training%20GT" target="_blank"
+style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:12px 16px;border-radius:50px;text-decoration:none;font-weight:bold;z-index:1000;box-shadow:0 8px 24px rgba(0,0,0,0.18);font-family:Montserrat,Arial,sans-serif;">
+💬 WhatsApp
+</a>
+
+
+<button class="cart-toggle" id="cartToggle">🛒 Cotización <span class="cart-count" id="cartCount">0</span></button>
+
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h3>Carrito de cotización</h3>
+    <button class="btn-cart-outline" id="cartClose" type="button">Cerrar</button>
+  </div>
+  <div class="cart-body">
+    <p class="cart-empty" id="cartEmpty">Aún no ha agregado productos.</p>
+    <ul class="cart-list" id="cartList"></ul>
+  </div>
+  <div class="cart-footer">
+    <textarea class="cart-note" id="cartNote" placeholder="Escriba aquí detalles adicionales, por ejemplo: cantidades especiales, nombre de empresa, NIT o dirección."></textarea>
+    <div class="cart-actions">
+      <button class="btn-cart-outline" id="cartClear" type="button">Vaciar</button>
+      <button class="btn-cart-wa" id="cartSend" type="button">Enviar a WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function() {
+  const PHONE = '50256223829';
+  const STORAGE_KEY = 'ohs_training_gt_cart';
+  const cartToggle = document.getElementById('cartToggle');
+  const cartPanel = document.getElementById('cartPanel');
+  const cartClose = document.getElementById('cartClose');
+  const cartCount = document.getElementById('cartCount');
+  const cartList = document.getElementById('cartList');
+  const cartEmpty = document.getElementById('cartEmpty');
+  const cartSend = document.getElementById('cartSend');
+  const cartClear = document.getElementById('cartClear');
+  const cartNote = document.getElementById('cartNote');
+
+  let cart = [];
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    cart = saved ? JSON.parse(saved) : [];
+  } catch (e) {
+    cart = [];
+  }
+
+  function saveCart() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  }
+
+  function totalQty() {
+    return cart.reduce((sum, item) => sum + item.qty, 0);
+  }
+
+  function renderCart() {
+    cartCount.textContent = totalQty();
+    cartList.innerHTML = '';
+    cartEmpty.style.display = cart.length ? 'none' : 'block';
+
+    cart.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.className = 'cart-item';
+      li.innerHTML = `
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-qty">
+          <button type="button" data-action="minus" data-index="${index}">−</button>
+          <span>${item.qty}</span>
+          <button type="button" data-action="plus" data-index="${index}">+</button>
+        </div>
+        <button type="button" class="cart-remove" data-action="remove" data-index="${index}">Quitar</button>
+      `;
+      cartList.appendChild(li);
+    });
+
+    saveCart();
+  }
+
+  function addProduct(name) {
+    const found = cart.find(item => item.name === name);
+    if (found) {
+      found.qty += 1;
+    } else {
+      cart.push({ name, qty: 1 });
+    }
+    renderCart();
+    cartPanel.classList.add('open');
+  }
+
+  document.querySelectorAll('.product-card').forEach(card => {
+    const title = card.querySelector('h3')?.innerText?.trim();
+    const btn = card.querySelector('.card-cta');
+    if (!title || !btn) return;
+
+    btn.setAttribute('href', '#');
+    btn.textContent = 'Agregar';
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      addProduct(title);
+      btn.classList.add('added');
+      const original = 'Agregar';
+      btn.textContent = 'Agregado';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('added');
+      }, 1200);
+    });
+  });
+
+  cartList.addEventListener('click', function(e) {
+    const action = e.target.getAttribute('data-action');
+    const index = Number(e.target.getAttribute('data-index'));
+    if (Number.isNaN(index)) return;
+
+    if (action === 'plus') cart[index].qty += 1;
+    if (action === 'minus') cart[index].qty -= 1;
+    if (action === 'remove' || cart[index].qty <= 0) cart.splice(index, 1);
+    renderCart();
+  });
+
+  cartToggle.addEventListener('click', () => cartPanel.classList.toggle('open'));
+  cartClose.addEventListener('click', () => cartPanel.classList.remove('open'));
+  cartClear.addEventListener('click', () => {
+    cart = [];
+    renderCart();
+  });
+
+  cartSend.addEventListener('click', () => {
+    if (!cart.length) {
+      alert('Agregue al menos un producto antes de enviar la cotización.');
+      return;
+    }
+
+    const lines = cart.map(item => `• ${item.name} x${item.qty}`);
+    let msg = 'Hola, quiero cotizar los siguientes productos de OHS Training GT:%0A%0A';
+    msg += lines.join('%0A');
+    if (cartNote.value.trim()) {
+      msg += '%0A%0ADetalles adicionales:%0A' + encodeURIComponent(cartNote.value.trim());
+    }
+    const url = `https://wa.me/${PHONE}?text=${msg}`;
+    window.open(url, '_blank');
+  });
+
+  renderCart();
+})();
+</script>
+
+</body>
+</html>
