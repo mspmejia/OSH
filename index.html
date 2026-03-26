@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OHS Training GT – Catálogo de Productos y Servicios</title>
+<link rel="icon" type="image/svg+xml" href="FullLogo.svg">
+<link rel="shortcut icon" href="FullLogo.svg">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -69,7 +71,8 @@ nav {
   gap: 10px;
   text-decoration: none;
 }
-  .nav-logo-img {
+
+.nav-logo-img {
   height: 42px;
   width: auto;
   display: block;
@@ -996,11 +999,10 @@ footer {
 
 <!-- NAVBAR -->
 <nav>
-  
- <a href="#inicio" class="nav-logo">
-  <img src="FullLogo.svg" alt="OHS Training GT" class="nav-logo-img">
-  <span class="nav-brand">OHS Training GT</span>
-</a>
+  <a href="#inicio" class="nav-logo">
+    <img src="FullLogo.svg" alt="OHS Training GT" class="nav-logo-img">
+    <span class="nav-brand">OHS Training GT</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#botiquines">Botiquines</a></li>
     <li><a href="#insumos">Insumos</a></li>
@@ -2173,7 +2175,10 @@ style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padd
     <ul class="cart-list" id="cartList"></ul>
   </div>
   <div class="cart-footer">
-    <textarea class="cart-note" id="cartNote" placeholder="Escriba aquí detalles adicionales, por ejemplo: cantidades especiales, nombre de empresa, NIT o dirección."></textarea>
+    <input type="text" id="cartName" placeholder="Nombre de contacto" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:10px;font-family:'Roboto',sans-serif;">
+    <input type="text" id="cartCompany" placeholder="Empresa" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:10px;font-family:'Roboto',sans-serif;">
+    <input type="text" id="cartEmail" placeholder="Correo electrónico" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:10px;font-family:'Roboto',sans-serif;">
+    <textarea class="cart-note" id="cartNote" placeholder="Escriba aquí detalles adicionales, por ejemplo: cantidades especiales, NIT, dirección o requerimientos especiales."></textarea>
     <div class="cart-actions">
       <button class="btn-cart-outline" id="cartClear" type="button">Vaciar</button>
       <button class="btn-cart-wa" id="cartSend" type="button">Enviar a WhatsApp</button>
@@ -2195,6 +2200,9 @@ style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padd
   const cartSend = document.getElementById('cartSend');
   const cartClear = document.getElementById('cartClear');
   const cartNote = document.getElementById('cartNote');
+  const cartName = document.getElementById('cartName');
+  const cartCompany = document.getElementById('cartCompany');
+  const cartEmail = document.getElementById('cartEmail');
 
   let cart = [];
   try {
@@ -2291,11 +2299,16 @@ style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padd
     }
 
     const lines = cart.map(item => `• ${item.name} x${item.qty}`);
-    let msg = 'Hola, quiero cotizar los siguientes productos de OHS Training GT:%0A%0A';
-    msg += lines.join('%0A');
-    if (cartNote.value.trim()) {
-      msg += '%0A%0ADetalles adicionales:%0A' + encodeURIComponent(cartNote.value.trim());
-    }
+    let parts = [];
+    parts.push('Hola, quiero cotizar los siguientes productos de OHS Training GT:');
+    parts.push('');
+    parts = parts.concat(lines);
+    if (cartName && cartName.value.trim()) parts.push('', 'Nombre de contacto: ' + cartName.value.trim());
+    if (cartCompany && cartCompany.value.trim()) parts.push('Empresa: ' + cartCompany.value.trim());
+    if (cartEmail && cartEmail.value.trim()) parts.push('Correo: ' + cartEmail.value.trim());
+    if (cartNote.value.trim()) parts.push('', 'Detalles adicionales:', cartNote.value.trim());
+
+    const msg = encodeURIComponent(parts.join('\n'));
     const url = `https://wa.me/${PHONE}?text=${msg}`;
     window.open(url, '_blank');
   });
